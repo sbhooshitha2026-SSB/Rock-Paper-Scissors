@@ -1,5 +1,8 @@
 console.log("Hello World")
 
+let humanScore = 0
+let computerScore = 0
+
 function random() {
     return Math.floor(Math.random()* 3)
 }
@@ -19,4 +22,5 @@ function getHumanChoice() {
     return prompt("Enter Rock, Paper, or Scissors","").toLowerCase()
 }
 
-console.log(getHumanChoice())
+console.log(getHumanChoice());
+
