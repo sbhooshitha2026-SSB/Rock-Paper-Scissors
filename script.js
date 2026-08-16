@@ -1,4 +1,4 @@
-
+function playGame() {
 
 let humanScore = 0
 let computerScore = 0
@@ -40,14 +40,30 @@ function playRound(humanChoice, computerChoice) {
     } else if (humanChoice === "Scissors" && computerChoice === "Paper") {
         console.log("You Win! Scissors beat Paper");
         humanScore = humanScore + 1
+    } else if (humanChoice === computerChoice) {
+        console.log("It's a Draw")
     } else {
-        console.log("You lose! computerChoice beat humanChoice");
+        console.log(`You lose! ${computerChoice} beat ${humanChoice}`);
         computerScore = computerScore + 1
     }
 }
 
+function totScore() {
+    console.log(`Your Score: ${humanScore} | Computer Score: ${computerScore}`)
+}
+
+playRound();
+playRound();
+playRound();
+playRound();
 playRound();
 
+
+totScore();
+
+}
+
+playGame();
 
 
 
