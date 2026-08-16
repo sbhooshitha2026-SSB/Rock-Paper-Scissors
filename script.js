@@ -15,4 +15,8 @@ function getComputerChoice() {
     }
 }
 
-console.log(getComputerChoice());
+function getHumanChoice() {
+    return prompt("Enter Rock, Paper, or Scissors","").toLowerCase()
+}
+
+console.log(getHumanChoice())
