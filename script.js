@@ -27,24 +27,22 @@ function getHumanChoice1() {
     return a[0].toUpperCase() + a.slice(1)
 }
 
-function playRound(humanChoice, computerChoice) {
-     humanChoice = getHumanChoice1();
-     computerChoice = getComputerChoice();
 
+function playRound(humanChoice, computerChoice) {
     if (humanChoice === "Rock" && computerChoice === "Scissors") {
         console.log("You Win! Rock beats Scissors");
-        humanScore = humanScore + 1
+        humanScore++
     } else if (humanChoice === "Paper" && computerChoice === "Rock") {
         console.log("You Win! Paper beats Rock");
-        humanScore = humanScore + 1
+        humanScore++
     } else if (humanChoice === "Scissors" && computerChoice === "Paper") {
         console.log("You Win! Scissors beat Paper");
-        humanScore = humanScore + 1
+        humanScore++
     } else if (humanChoice === computerChoice) {
         console.log("It's a Draw")
     } else {
         console.log(`You lose! ${computerChoice} beat ${humanChoice}`);
-        computerScore = computerScore + 1
+        computerScore++
     }
 }
 
@@ -52,11 +50,11 @@ function totScore() {
     console.log(`Your Score: ${humanScore} | Computer Score: ${computerScore}`)
 }
 
-playRound();
-playRound();
-playRound();
-playRound();
-playRound();
+playRound(getHumanChoice1(), getComputerChoice());
+playRound(getHumanChoice1(), getComputerChoice());
+playRound(getHumanChoice1(), getComputerChoice());
+playRound(getHumanChoice1(), getComputerChoice());
+playRound(getHumanChoice1(), getComputerChoice());
 
 
 totScore();
