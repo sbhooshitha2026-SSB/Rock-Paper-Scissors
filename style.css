@@ -1,5 +1,16 @@
+* {
+    border: 0px;
+    margin: 0px;
+    padding: 0px;
+    
+}
+
+
 h1 {
     color: orangered;
+    padding: 20px 40px;
+    text-align: center;
+    font-size: 40px;
 }
 
 body {
@@ -7,15 +18,21 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    min-height: 100vh;
 }
 
 h4 {
-    color: greenyellow;
+    color: purple;
+    padding: 5px 10px;
+    text-align: center;
+    font-size: 30px;
 }
 
 .start {
-    color:aquamarine;
-    background-color: orange;
+    color:white;
+    background-color: black;
+    font-size: larger;
+    padding: 5px 10px;
 }
 
 .c1 {
@@ -23,4 +40,18 @@ h4 {
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 10px 20px;
+}
+
+.container {
+    display: none;
+    justify-content: center;
+    padding: 10px 20px;
+    gap:20px;
+}
+
+.container > * {
+    padding: 5px 10px;
+    font-size: 20px;
+
 }

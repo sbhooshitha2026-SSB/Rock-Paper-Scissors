@@ -1,6 +1,7 @@
 const choices = document.querySelectorAll('.rock, .paper, .sc');
 const container1 = document.querySelector('.container');
 const startbtn = document.querySelector('.start');
+const body1 = document.querySelector('body');
 
 function hChoice () {
     return new Promise(resolve => {
@@ -13,6 +14,14 @@ function hChoice () {
 };
 
 async function playGame() {
+
+    startbtn.style.display = 'none';
+
+
+
+const rescontainer = document.createElement('div');
+rescontainer.setAttribute('style', 'padding:5px 10px; border:1px solid black; margin: 10px; background-color: white;');
+body1.appendChild(rescontainer);
 
 let humanScore = 0
 let computerScore = 0
@@ -33,7 +42,7 @@ function getComputerChoice() {
 }
 
  async function getHumanChoice() {
-    container1.style.display = 'block';
+    container1.style.display = 'flex';
 
     const a = await hChoice();
 
@@ -47,30 +56,54 @@ function getComputerChoice() {
 
 async function playRound(humanChoice, computerChoice) {
     if (humanChoice === "Rock" && computerChoice === "Scissors") {
-        console.log("You Win! Rock beats Scissors");
+        const a = document.createElement('p')
+        a.setAttribute('style', 'text-align: center; font-size: 20px; padding: 5px 10px;');
+        a.textContent = "You Win! Rock beats Scissors"
+        rescontainer.appendChild(a);
         humanScore++
     } else if (humanChoice === "Paper" && computerChoice === "Rock") {
-        console.log("You Win! Paper beats Rock");
+        const a = document.createElement('p');
+        a.setAttribute('style', 'text-align: center; font-size: 20px; padding: 5px 10px; ');
+        a.textContent = "You Win! Paper beats Rock";
+        rescontainer.appendChild(a);
         humanScore++
     } else if (humanChoice === "Scissors" && computerChoice === "Paper") {
-        console.log("You Win! Scissors beat Paper");
+        const a = document.createElement('p');
+        a.setAttribute('style', 'text-align: center; font-size: 20px; padding: 5px 10px;');
+        a.textContent = "You Win! Scissors beat Paper";
+        rescontainer.appendChild(a);
         humanScore++
     } else if (humanChoice === computerChoice) {
-        console.log("It's a Draw")
+        const a = document.createElement('p');
+        a.setAttribute('style', 'text-align: center; font-size: 20px; padding: 5px 10px;');
+        a.textContent = "It's a Draw";
+        rescontainer.appendChild(a);
     } else {
-        console.log(`You lose! ${computerChoice} beat ${humanChoice}`);
+        const a = document.createElement('p');
+        a.setAttribute('style', 'text-align: center; font-size: 20px; padding: 5px 10px;');
+        a.textContent = `You lose! ${computerChoice} beat ${humanChoice}`;
+        rescontainer.appendChild(a);
         computerScore++
     }
 }
 
 function totScore() {
-    console.log(`Your Score: ${humanScore} | Computer Score: ${computerScore}`)
+    const a = document.createElement('p');
+    a.setAttribute('style', 'text-align: center; font-size: 20px; padding: 5px 10px; margin: 10px; border: 1px solid black; background-color: greenyellow;');
+    a.textContent = `Your Score: ${humanScore} | Computer Score: ${computerScore}`
+    rescontainer.appendChild(a);
 }
 
+playRound(await getHumanChoice(),getComputerChoice());
+playRound(await getHumanChoice(),getComputerChoice());
+playRound(await getHumanChoice(),getComputerChoice());
+playRound(await getHumanChoice(),getComputerChoice());
 playRound(await getHumanChoice(),getComputerChoice());
 
 
 totScore();
+
+startbtn.style.display = 'inline-block';
 
 }
 
