@@ -1,4 +1,22 @@
-function playGame() {
+const choices = document.querySelectorAll('.rock, .paper, .sc');
+const container1 = document.querySelector('.container');
+
+function hChoice () {
+    return new Promise(resolve => {
+        choices.forEach(choice => {
+            choice.addEventListener("click", () => {
+                resolve(choice.innerHTML);
+            }, {once: true});
+        })
+    })
+};
+
+
+
+
+
+
+async function playGame() {
 
 let humanScore = 0
 let computerScore = 0
@@ -18,17 +36,20 @@ function getComputerChoice() {
     }
 }
 
-function getHumanChoice() {
-    return prompt("Enter Rock, Paper, or Scissors","").toLowerCase()
+ async function getHumanChoice() {
+    container1.style.display = 'block';
+
+    const a = await hChoice();
+
+    container1.style.display = 'none';
+
+    return a;
 }
 
-function getHumanChoice1() {
-    let a = getHumanChoice();
-    return a[0].toUpperCase() + a.slice(1)
-}
 
 
-function playRound(humanChoice, computerChoice) {
+
+async function playRound(humanChoice, computerChoice) {
     if (humanChoice === "Rock" && computerChoice === "Scissors") {
         console.log("You Win! Rock beats Scissors");
         humanScore++
@@ -50,11 +71,7 @@ function totScore() {
     console.log(`Your Score: ${humanScore} | Computer Score: ${computerScore}`)
 }
 
-playRound(getHumanChoice1(), getComputerChoice());
-playRound(getHumanChoice1(), getComputerChoice());
-playRound(getHumanChoice1(), getComputerChoice());
-playRound(getHumanChoice1(), getComputerChoice());
-playRound(getHumanChoice1(), getComputerChoice());
+playRound(await getHumanChoice(),getComputerChoice());
 
 
 totScore();
