@@ -1,5 +1,6 @@
 const choices = document.querySelectorAll('.rock, .paper, .sc');
 const container1 = document.querySelector('.container');
+const startbtn = document.querySelector('.start');
 
 function hChoice () {
     return new Promise(resolve => {
@@ -10,11 +11,6 @@ function hChoice () {
         })
     })
 };
-
-
-
-
-
 
 async function playGame() {
 
@@ -78,7 +74,9 @@ totScore();
 
 }
 
-playGame();
+startbtn.addEventListener('click', () => {
+    playGame();
+});
 
 
 
